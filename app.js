@@ -14,6 +14,8 @@ const welcome = (req, res) => {
 
 app.get("/", welcome);
 
+
+
 const movieHandlers = require("./movieHandlers");
 const { validateMovie , validateUser } = require("./validators");
 
@@ -36,3 +38,7 @@ app.listen(port, (err) => {
     console.log(`Server is listening on ${port}`);
   }
 });
+
+app.delete("/api/movies/:id", movieHandlers.deleteMovie);
+
+app.delete("/api/users/:id", userHandlers.deleteUser);
